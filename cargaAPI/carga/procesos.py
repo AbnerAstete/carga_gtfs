@@ -299,26 +299,24 @@ def agregar_registros_stops(zip,db,df_db,df,tabla):
 
 
 def verificar_registros_antiguos(zip,db: Session,df_agency,df_calendar,df_routes,df_stop_times,df_stops,df_trips,df_shapes,df_shapes_reference,df_db_agency,df_db_routes,df_db_calendar,df_db_stops,df_db_shapes_reference,df_db_shapes,df_db_trips,df_db_stop_times):
-    #eliminar_registros_stop_time(zip,db,df_db_stop_times,df_stop_times,'trip_id','stop_id','stop_times')
-    # eliminar_registros(zip,db,df_db_trips,df_trips,'trip_id','trip')
-    # eliminar_registros(zip,db,df_db_shapes,df_shapes,'shape_id','shapes')
-    # eliminar_registros(zip,db,df_db_shapes_reference,df_shapes_reference,'shape_id','shape_reference')    
-    # eliminar_registros(zip,db,df_db_calendar,df_calendar,'service_id','calendar')
-    # eliminar_registros(zip,db,df_db_routes,df_routes,'route_id','route')   
-    df_agency_antiguos_registros = eliminar_registros(zip,db,df_db_agency,df_agency,'agency_id','agency')
-    # eliminar_registros(zip,db,df_db_stops,df_stops,'stop_id','stop')
-    return df_agency_antiguos_registros
+    eliminar_registros_stop_time(zip,db,df_db_stop_times,df_stop_times,'trip_id','stop_id','stop_times')
+    eliminar_registros(zip,db,df_db_trips,df_trips,'trip_id','trip')
+    eliminar_registros(zip,db,df_db_shapes,df_shapes,'shape_id','shapes')
+    eliminar_registros(zip,db,df_db_shapes_reference,df_shapes_reference,'shape_id','shape_reference')    
+    eliminar_registros(zip,db,df_db_calendar,df_calendar,'service_id','calendar')
+    eliminar_registros(zip,db,df_db_routes,df_routes,'route_id','route')   
+    eliminar_registros(zip,db,df_db_agency,df_agency,'agency_id','agency')
+    eliminar_registros(zip,db,df_db_stops,df_stops,'stop_id','stop')
 
 def verificar_registros_nuevos(zip,db: Session,df_agency,df_calendar,df_routes,df_stop_times,df_stops,df_trips,df_shapes,df_shapes_reference,df_db_agency,df_db_routes,df_db_calendar,df_db_stops,df_db_shapes_reference,df_db_shapes,df_db_trips,df_db_stop_times):
-    df_agency_nuevos_registros = agregar_registros(zip,db,df_db_agency,df_agency,'agency')
-    # agregar_registros(zip,db,df_db_routes,df_routes,'route')
-    # agregar_registros(zip,db,df_db_calendar,df_calendar,'calendar')
-    # agregar_registros(zip,db,df_db_shapes_reference,df_shapes_reference,'shape_reference')
-    # agregar_registros(zip,db,df_db_shapes,df_shapes,'shapes')
-    # agregar_registros(zip,db,df_db_trips,df_trips,'trip')
-    # agregar_registros_stops(zip,db,df_db_stops,df_stops,'stop')
-    # agregar_registros(zip,db,df_db_stop_times,df_stop_times,'stop_times')
-    return df_agency_nuevos_registros
+    agregar_registros(zip,db,df_db_agency,df_agency,'agency')
+    agregar_registros(zip,db,df_db_routes,df_routes,'route')
+    agregar_registros(zip,db,df_db_calendar,df_calendar,'calendar')
+    agregar_registros(zip,db,df_db_shapes_reference,df_shapes_reference,'shape_reference')
+    agregar_registros(zip,db,df_db_shapes,df_shapes,'shapes')
+    agregar_registros(zip,db,df_db_trips,df_trips,'trip')
+    agregar_registros_stops(zip,db,df_db_stops,df_stops,'stop')
+    agregar_registros(zip,db,df_db_stop_times,df_stop_times,'stop_times')
 
 
 def terminar_carga(zip,db,zips_procesados):
